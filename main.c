@@ -26,6 +26,9 @@ int main(int argc, char *argv[])
 		else if (nread == 0)
 			ext_msg(EXIT_SUCCESS, "\nGoodbye!\n");
 		buffer[nread] = '\0';
+		cleanstr(buffer);
+		if (tok_num(buffer, " ") <= 0)
+			continue;
 		token = tokstr(buffer, TOKEN_DELIMITERS, &comsave);
 		i = 0;
 		while (token != NULL)
