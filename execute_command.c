@@ -16,6 +16,9 @@ void execute_command(char **args, char **paths)
     /*child proc PID*/
 	if (pid == 0)
 	{
+		if (access(args[0], X_OK) == 0)
+			if (execv(args[0], args) == -1)
+				ext_msg(EXIT_FAILURE, "Error executing command\n");
 		i = 0;
 		while (paths[i] != NULL)
 		{

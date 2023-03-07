@@ -9,6 +9,8 @@
 #define BUFFER_SIZE 1024
 #define TOKEN_DELIMITERS " \t\r\n\a"
 
+extern char **environ;
+
 void execute_command(char **args, char **paths);
 void print_environment(void);
 void tokenize_path(char *path, char **paths);
