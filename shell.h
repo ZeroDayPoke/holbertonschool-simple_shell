@@ -11,7 +11,7 @@
 
 extern char **environ;
 
-void execute_command(char **args, char **paths);
+int execute_command(char **args, char **paths);
 void print_environment(void);
 void tokenize_path(char *path, char **paths);
 char *tokstr(char *str, const char *delim, char **saveptr);
@@ -29,6 +29,7 @@ char *_strchr(const char *s, char c);
 char *_strpbrk(char *s, const char *accept);
 int cleanstr(char *line);
 
+int forktime(char **args);
 void ext_msg(int status, char *msg);
 
 #endif
