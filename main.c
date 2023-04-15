@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 	char *comsave = NULL, *prompt = NULL, *path = NULL, *token = NULL;
 	char buffer[BUFFER_SIZE], *args[20], *paths[20], *pname = argv[0];
 	ssize_t nread;
-	int i = 0, exret = 0;
+	int i = 0;
 
 	prompt = "$ ";
 	path = getenv("PATH");
@@ -26,6 +26,7 @@ int main(int argc, char *argv[])
 		else if (nread == 0)
 			ext_msg(EXIT_SUCCESS, "\nGoodbye!\n");
 		buffer[nread] = '\0';
+		cleanstr(buffer);
 		if (tok_num(buffer, " ") <= 0)
 			continue;
 		token = tokstr(buffer, TOKEN_DELIMITERS, &comsave);
@@ -42,9 +43,9 @@ int main(int argc, char *argv[])
 		else if (_strcmp(args[0], "env") == 0)
 			print_environment();
 		else
-			exret = execute_command(args, paths);
+			execute_command(args, paths);
 	}
-	return (exret);
+	return (0);
 	(void) argc;
 	(void) pname;
 }
