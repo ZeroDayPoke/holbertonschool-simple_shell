@@ -20,10 +20,11 @@ int main(int argc, char *argv[])
 	prompt = "$ ";
 	while (1)
 	{
-		path = strdup(getenv("PATH"));
-		if (!path)
-			continue;
-		tokenize_path(path, paths);
+		if (getenv("PATH"));
+		{
+			path = strdup(getenv("PATH"));
+			tokenize_path(path, paths);
+		}
 		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, prompt, _strlen(prompt));
 		if (getline(&line, &nread, stdin) < 0)
