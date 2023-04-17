@@ -21,6 +21,8 @@ int main(int argc, char *argv[])
 	while (1)
 	{
 		path = strdup(getenv("PATH"));
+		if (!path)
+			continue;
 		tokenize_path(path, paths);
 		if (isatty(STDIN_FILENO))
 			write(STDOUT_FILENO, prompt, _strlen(prompt));
