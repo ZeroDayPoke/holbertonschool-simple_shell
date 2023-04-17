@@ -1,4 +1,11 @@
 #include "shell.h"
+
+char *_strcat(char *dest, char *src);
+char *_strcpy(char *dest, char *src);
+int _strlen(char *s);
+int _strncmp(char *s1, char *s2, int n);
+int _strcmp(char *s1, char *s2);
+
 /**
  * *_strcat - meows 2 strings together
  * @dest: where big string goes and other smol string comes
@@ -22,6 +29,7 @@ char *_strcat(char *dest, char *src)
 	dest[i] = '\0';
 	return (dest);
 }
+
 /**
  * *_strcpy - function for to copy chararr
  * @src: source of chararr
@@ -40,31 +48,7 @@ char *_strcpy(char *dest, char *src)
 	dest[a] = '\0';
 	return (dest);
 }
-/**
- * _strcmp - compares strings ASCII values
- * @s1: first string
- * @s2: second string
- * Return: first dif
- */
-int _strcmp(char *s1, char *s2)
-{
-	int i = 0, dif = 0;
 
-	while (s1[i] && s2[i])
-	{
-		if (s1[i] == s2[i])
-		{
-			i++;
-			continue;
-		}
-		else
-		{
-			dif = s1[i] - s2[i];
-			break;
-		}
-	}
-	return (dif);
-}
 /**
  * _strlen - function to find length of string
  * @s: string input
@@ -80,6 +64,7 @@ int _strlen(char *s)
 	}
 	return (a);
 }
+
 /**
  * _strncmp - compares strings up to n chars
  * @s1: first string
@@ -92,6 +77,32 @@ int _strncmp(char *s1, char *s2, int n)
 	int i = 0, dif = 0;
 
 	while (s1[i] && s2[i] && (i < n))
+	{
+		if (s1[i] == s2[i])
+		{
+			i++;
+			continue;
+		}
+		else
+		{
+			dif = s1[i] - s2[i];
+			break;
+		}
+	}
+	return (dif);
+}
+
+/**
+ * _strcmp - compares strings ASCII values
+ * @s1: first string
+ * @s2: second string
+ * Return: first dif
+ */
+int _strcmp(char *s1, char *s2)
+{
+	int i = 0, dif = 0;
+
+	while (s1[i] && s2[i])
 	{
 		if (s1[i] == s2[i])
 		{
