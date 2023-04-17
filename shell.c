@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 	prompt = "$ ";
 	while (1)
 	{
-		if (getenv("PATH"));
+		if (getenv("PATH"))
 		{
 			path = strdup(getenv("PATH"));
 			tokenize_path(path, paths);
